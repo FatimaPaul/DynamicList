@@ -1,24 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import Input from "./components/Input";
+import Button from "./components/Button";
+import Select from "./components/Select";
+import Table from "./components/Table";
 
 function App() {
+  const list = [
+    {
+      id: 1,
+      name: "jonas",
+    },
+    {
+      id: 2,
+      name: "Peter",
+    },
+    {
+      id: 3,
+      name: "Levis",
+    },
+  ];
+
+  function handleSubmit(e) {
+    e.preventDefault();
+  }
+
+  const arrSelect = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <form onSubmit={handleSubmit}>
+        <Input dtext="TypeHere...." />
+        <Select dselect={arrSelect} />
+        <Button dbutton="Search" />
+      </form>
+
+      <Table dlist={list} />
+    </>
   );
 }
 
